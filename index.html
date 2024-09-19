@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .portfolio-icon {
+            cursor: pointer;
+            width: 30px;
+            /* Adjust the size */
+            height: 30px;
+            /* Adjust the size */
+            margin-right: 10px;
+            /* Space between the icon and text */
+            vertical-align: middle;
+            /* Align the icon with the text */
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-icon:hover {
+            transform: scale(1.4);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18, 18, 62);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: lavender;
+            font-size: 1.04rem;
+        }
+
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 60px 84px;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            margin: 130px 0;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            /* background-color: red; */
+            font-size: 2rem;
+            /* margin: 30px 0; */
+
+        }
+
+        /* .leftSection .button{
+            padding: 5opx 0;
+        } */
+        .leftSection .btn {
+            margin-top: 12px;
+            padding: 12px;
+            background: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .rightSection img {
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* display: inline-block; */
+            /* text-align: center; */
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            /* margin: 50px 530px; */
+        }
+
+        .purple {
+            color: rgb(170, 107, 228);
+        }
+
+        .text-grey {
+            color: gray;
+        }
+
+        #element {
+            color: rgb(170, 107, 228);
+        }
+
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 80vh;
+        }
+
+        .secondSection h1 {
+            font-size: 1.9rem;
+        }
+
+        .secondSection .box {
+            display: flex;
+            gap: 25px;
+            background: white;
+            width: 77vw;
+            height: 2px;
+            margin: 56px 0;
+        }
+
+        .secondSection .vertical {
+            height: 93px;
+            width: 1px;
+            background-color: white;
+            margin: 0 6vw;
+        }
+
+        .image-top {
+            width: 23px;
+            position: relative;
+            top: -32px;
+            left: -9px;
+        }
+
+        .vertical-title {
+            position: relative;
+            top: 75px;
+            width: 150px;
+            font-size: 14px;
+        }
+
+        .vertical-desc {
+            position: relative;
+            top: 86px;
+            color: white;
+            width: 150px;
+            font-size: 9.5px;
+            /* line-height: 1.5; */
+            /* margin-bottom: 15px; */
+        }
+
+        .vertical-desc p {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #020433;
+            transform: scale(1.1);
+        }
+
+        .center-image {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .center-image:hover {
+            transform: scale(1.5);
+        }
+
+        footer{
+            background-color: #414150;        
+        }
+
+        .footer{
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul{
+            list-style: none;
+
+        }
+
+        .footer>div{
+            width: 223px;
+        }
+
+        footer .footer-rights{
+            text-align: center;
+            color: gray;
+            padding: 12px 0; 
+        }
+
+        /* footer {
+            padding: 8vw;
+            background-color: rgb(52, 50, 50);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            /* background-color: #414150; */
+        /* }
+
+        footer .footer-col {
+            padding-bottom: 40px;
+        }
+
+        footer h3 {
+            color: white;
+            font-weight: 600;
+            padding-bottom: 20px;
+        }
+
+        footer li {
+            list-style: none;
+            color: gray;
+            /* margin-right: 10px; */
+            /* padding: 10px 0;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s ease; */
+        /* }
+
+        footer li:hover {
+            color: rgb(241, 240, 245);
+        }
+
+        footer p {
+            color: gray;
+        }
+
+        footer .subscribe {
+            margin-top: 20px;
+        }
+
+        footer input {
+            width: 220px;
+            padding: 15px 12px;
+            background: #334F6C;
+            border: none;
+            outline: none;
+            color: white;
+        }
+
+        footer .subscribe a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 12px 15px;
+            background-color: white;
+            font-weight: 600;
+        }
+
+        footer .subscribe a.yellow {
+            color: #2c2c2c;
+            background: #FDC93B;
+            transition: 0.3s ease;
+        }
+
+        footer .subscribe a.yellow:hover {
+            color: rgb(21, 21, 100);
+            background: white;
+        }
+
+        footer .copyright {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            flex: wrap;
+        }
+
+        footer .copyright p {
+            color: white;
+        }
+
+        footer .copyright .pro-links {
+            margin-top: 0px;
+        }
+
+        footer .copyright .pro-links i {
+            background-color: gray;
+            color: white;
+        }
+
+        footer .copyright .pro-links i:hover {
+            background-color: #FDC93B;
+            color: #2c2c2c;
+        } */ 
+
+        /* .footer {
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+        } */
+
+        /* .footer ul {
+            list-style: none;
+        }
+
+        .footer>div {
+            width: 223px;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: darkgray;
+            padding: 12px;
+        } */
+
+        /* @media screen and (max-width: 1400px) {
+          
+          .box{
+            flex-direction: column;
+          }
+          .secondSection .vertical{
+            height: unset;
+          }
+          .vertical-title, .vertical-desc{
+            left: 45px;
+          }
+          .secondSection .box{
+            width: 50vw;
+          }
+          nav{
+            flex-direction: column;
+          }
+          footer{
+            display: none;
+          }
+          .firstSection{
+            flex-direction: column-reverse;
+          }
+          .leftSection{
+            width: 100% !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .rightSection{
+            width: 72px !important;
+            display: flex;
+            justify-content: center;
+          }
+          .rightSection img{
+            width: 45vw;
+            margin-bottom: 73px;
+          }
+          .image-top{
+            top: 122px;
+          }
+          .secondSection{
+             max-width: 80vw;
+            margin: auto;
+            height: 80vh; 
+         display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          body{
+            min-width: fit-content;
+          } 
+         } */
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <img src="photo.png" alt="" class="portfolio-icon">My Portfolio
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">Projects</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                <div>Hi, My name is <span class="purple">Pasupati</span></div>
+                <div>and I am a passionate</div>
+                <span id="element"></span>
+                <div class="buttons">
+                    <button class="btn">Download Resume</button>
+                    <button class="btn">Visit Github</button>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="my_img.png.jpg" alt="" class="center-image">
+            </div>
+        </section>
+        <hr>
+
+        <section class="secondSection">
+            <span class="text-grey">What i have done so far</span>
+            <h1>My Projects</h1>
+            <div class="box">
+                <div class="vertical"><img class="image-top" src="login (1).png" alt="">
+                    <div class="vertical-title">
+                        Login Page Using HTML and CSS
+                    </div>
+                    <div class="vertical-desc">
+                        <p>(Overview: Developed a responsive login page using HTML and CSS.
+                            Designed a user-friendly interface with a modern, clean layout.</p>
+                        <p>Technologies Used: HTML, CSS, Responsive Web Design.</p>
+                        <p>Outcome: The project demonstrates fundamental front-end development skills, including design
+                            and
+                            implementation of user interfaces.)</p>
+                    </div>
+                </div>
+                <div class="vertical"><img class="image-top" src="calculator.png" alt="">
+                    <div class="vertical-title">
+                        Interactive <br>Calculator
+                    </div>
+                    <div class="vertical-desc">
+                        <p>(Overview: Developed a fully functional calculator using HTML, CSS, and basic JavaScript.</p>
+                        <p>Technologies Used: HTML, CSS, JavaScript.</p>
+                        <p>Outcome: Demonstrates proficiency in front-end development, including JavaScript
+                            functionality
+                            and responsive design.)</p>
+                    </div>
+                </div>
+                <div class="vertical"><img class="image-top" src="list.png" alt="">
+                    <div class="vertical-title">
+                        To-Do List <br>Application
+                    </div>
+                    <div class="vertical-desc">
+                        <p>(Overview: Developed a To-Do list application using HTML, CSS, and JavaScript to manage tasks
+                            efficiently.</p>
+                        <p>Technologies Used: HTML, CSS, JavaScript.</p>
+                        <p>Outcome: Demonstrates proficiency in front-end development and state management using
+                            JavaScript.)</p>
+                    </div>
+                </div>
+                <div class="vertical"><img class="image-top" src="myntra.jpg" alt="">
+                    <div class="vertical-title">
+                        Myntra Clone with Responsive Design
+                    </div>
+                    <div class="vertical-desc">
+                        <p>(Overview: Developed a responsive clone of the Myntra shopping platform using HTML, CSS, and
+                            JavaScript, with functionality to manage items in a shopping bag.</p>
+                        <p>Technologies Used: HTML, CSS, JavaScript.</p>
+                        <p>Outcome: Demonstrates proficiency in front-end development and interactive web application
+                            features.)</p>
+                    </div>
+                </div>
+
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Pasupati's Developer Portfolio</h3>
+            </div>
+            <div class="footer-second">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-fourth">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rights">
+            Copyright &#169; pasupatiportfolio.com | All rights reserved
+        </div>
+    </footer>
+
+    <!-- <footer>
+        <div class="footer-col">
+            <h3>Top Products</h3>
+            <li>Manage Reputations</li>
+            <li>Power Tools</li>
+            <li>Manage Websites</li>
+            <li>Marketing Services</li>
+        </div>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <li>Jobs</li>
+            <li>Brand Assets</li>
+            <li>Investor Relations</li>
+            <li>Terms and Services</li>
+        </div>
+        <div class="footer-col">
+            <h3>Features</h3>
+            <li>Manage Reputations</li>
+            <li>Power Tools</li>
+            <li>Manage Websites</li>
+            <li>Marketing Services</li>
+        </div>
+        <div class="footer-col">
+            <h3>Resources</h3>
+            <li>Guides</li>
+            <li>Research</li>
+            <li>Experts</li>
+            <li>Marketing Services</li>
+        </div>
+        <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>You can trust us.We only promote genuine education.</p>
+            <div class="subscribe">
+                <input type="text" placeholder="Your email-id">
+                <a href="#" class="yellow">SUBSCRIBE</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright ©2024. All rights reserved.</p>
+            <div class="pro-links">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+        </div>
+    </footer> -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Setup and start animation! -->
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Front-End Developer.'],
+            typeSpeed: 20,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
