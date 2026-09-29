@@ -1,768 +1,1175 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>My Portfolio</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: rgb(0, 0, 33);
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-
-        nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            min-height: 80px;
-            background-color: rgb(18, 18, 62);
-            padding: 10px 20px;
-        }
-
-        .left {
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .portfolio-icon {
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-            vertical-align: middle;
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-icon:hover {
-            transform: scale(1.4);
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        nav ul li {
-            list-style: none;
-            margin: 0 23px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-        }
-
-        nav ul li a:hover {
-            color: lavender;
-            font-size: 1.04rem;
-        }
-
-
-        main hr {
-            border: 0;
-            background: #9c97f1;
-            height: 1.2px;
-            margin: 60px 84px;
-        }
-
-
-        .firstSection {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 130px 0;
-            padding: 0 40px;
-        }
-
-        .firstSection > div {
-            width: 40%;
-        }
-
-        .leftSection {
-            font-size: 2rem;
-        }
-
-        .leftSection .btn {
-            margin-top: 12px;
-            padding: 12px;
-            background: #1e2167;
-            color: white;
-            border: 2px solid white;
-            border-radius: 6px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .btn {
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #020433;
-            transform: scale(1.1);
-        }
-
-
-        .rightSection {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .rightSection img {
-            height: 200px;
-            width: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .center-image {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .center-image:hover {
-            transform: scale(1.5);
-        }
-
-        .purple {
-            color: rgb(170, 107, 228);
-        }
-
-        .text-grey {
-            color: gray;
-        }
-
-        #element {
-            color: rgb(170, 107, 228);
-        }
-
-
-        .secondSection {
-            max-width: 80vw;
-            margin: auto;
-            padding-bottom: 80px;
-        }
-
-        .secondSection h1 {
-            font-size: 1.9rem;
-            margin-top: 8px;
-        }
-
-
-        .secondSection .box {
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-            width: 100%;
-            margin: 50px 0 0;
-        }
-
-
-        .vertical {
-            position: relative;
-            width: 100%;
-            min-height: 170px;
-            padding: 25px 25px 25px 80px;
-
-            background-color: transparent;
-            border-left: 2px solid white;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .image-top {
-            width: 45px;
-            height: 45px;
-            object-fit: cover;
-
-            position: absolute;
-            top: 20px;
-            left: -24px;
-
-            background-color: rgb(0, 0, 33);
-            border-radius: 50%;
-        }
-
-
-        .vertical-title {
-            position: static;
-            width: 100%;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .vertical-desc {
-            position: static;
-            width: 100%;
-            color: white;
-            font-size: 12px;
-            line-height: 1.5;
-        }
-
-        .vertical-desc p {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background-color: #414150;
-        }
-
-        .footer {
-            display: flex;
-            padding: 23px 122px;
-            justify-content: space-evenly;
-        }
-
-        .footer ul {
-            list-style: none;
-        }
-
-        .footer > div {
-            width: 223px;
-        }
-
-        footer .footer-rights {
-            text-align: center;
-            color: gray;
-            padding: 12px 0;
-        }
-
-
-        @media screen and (max-width: 1400px) {
-
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .firstSection {
-                flex-direction: column-reverse;
-                margin: 80px 0;
-                gap: 50px;
-            }
-
-            .firstSection > div {
-                width: 100%;
-            }
-
-            .leftSection {
-                width: 100% !important;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-            }
-
-            .rightSection {
-                width: 100% !important;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .rightSection img {
-                width: 200px;
-                height: 200px;
-                margin-bottom: 20px;
-            }
-
-
-            .secondSection {
-                width: 80vw;
-                max-width: 900px;
-                margin: auto;
-                padding-bottom: 80px;
-            }
-
-            .secondSection .box {
-                width: 100%;
-                gap: 30px;
-            }
-
-            .vertical {
-                width: 100%;
-                min-height: auto;
-                padding: 25px 20px 25px 65px;
-            }
-
-            .vertical-title {
-                width: 100%;
-                font-size: 16px;
-            }
-
-            .vertical-desc {
-                width: 100%;
-                font-size: 11px;
-            }
-
-            footer {
-                display: none;
-            }
-        }
-
-
-        @media screen and (max-width: 768px) {
-
-            nav ul {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            nav ul li {
-                margin: 0 10px;
-            }
-
-            .leftSection {
-                font-size: 1.6rem;
-            }
-
-            .rightSection img {
-                width: 180px;
-                height: 180px;
-            }
-
-            main hr {
-                margin: 40px 30px;
-            }
-
-            .secondSection {
-                width: 90vw;
-            }
-
-            .vertical {
-                padding-left: 55px;
-            }
-
-            .vertical-title {
-                font-size: 15px;
-            }
-
-            .vertical-desc {
-                font-size: 11px;
-            }
-        }
-
-
-        @media screen and (max-width: 480px) {
-
-            .left {
-                font-size: 1.3rem;
-            }
-
-            nav ul li {
-                margin: 0 6px;
-            }
-
-            nav ul li a {
-                font-size: 14px;
-            }
-
-            .leftSection {
-                font-size: 1.3rem;
-            }
-
-            .leftSection .btn {
-                font-size: 15px;
-                padding: 10px;
-            }
-
-            .rightSection img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .secondSection {
-                width: 92vw;
-            }
-
-            .secondSection h1 {
-                font-size: 1.6rem;
-            }
-
-            .vertical {
-                padding: 20px 15px 20px 45px;
-            }
-
-            .image-top {
-                width: 35px;
-                height: 35px;
-                left: -19px;
-            }
-
-            .vertical-title {
-                font-size: 14px;
-            }
-
-            .vertical-desc {
-                font-size: 10px;
-                line-height: 1.5;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasupati Nath Jha | Full-Stack Developer</title>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+:root{
+  --bg:#0d0f1f;
+  --surface:#161936;
+  --line:#2a2e57;
+  --text:#e9eaf6;
+  --muted:#9da1c4;
+  --accent:#8a8fff;
+  --warm:#ffb86b;
+  --nav:72px
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:var(--nav)
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font:400 1rem/1.65 "DM Sans",Arial,sans-serif
+}
+
+h1,h2,h3{
+  font-family:Sora,Arial,sans-serif;
+  line-height:1.2
+}
+
+a{
+  color:inherit;
+  text-decoration:none
+}
+
+:focus-visible{
+  outline:2px solid var(--warm);
+  outline-offset:3px
+}
+
+section{
+  padding:96px 24px
+}
+
+.wrap{
+  max-width:1000px;
+  margin:auto
+}
+
+h2{
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  margin-bottom:8px
+}
+
+.sub{
+  color:var(--muted);
+  margin-bottom:40px;
+  max-width:60ch
+}
+
+nav{
+  position:fixed;
+  inset:0 0 auto 0;
+  height:var(--nav);
+  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 max(24px,calc((100vw - 1000px)/2));
+  background:rgba(13,15,31,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)
+}
+
+.logo{
+  font:700 1.15rem Sora,sans-serif;
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+
+.logo b{
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  background:var(--accent);
+  color:var(--bg);
+  font-size:.9rem
+}
+
+nav ul{
+  display:flex;
+  gap:6px;
+  list-style:none
+}
+
+nav ul a{
+  display:block;
+  padding:8px 14px;
+  border-radius:8px;
+  color:var(--muted);
+  transition:color .2s,background .2s
+}
+
+nav ul a:hover{
+  color:var(--text)
+}
+
+nav ul a.active{
+  color:var(--text);
+  background:var(--surface);
+  box-shadow:inset 0 -2px 0 var(--accent)
+}
+
+.burger{
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  color:var(--text);
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:1rem;
+  cursor:pointer
+}
+
+#home{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:calc(var(--nav) + 40px)
+}
+
+#home .wrap{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:56px;
+  align-items:center
+}
+
+.hi{
+  color:var(--warm);
+  font-weight:500;
+  margin-bottom:12px
+}
+
+#home h1{
+  font-size:clamp(2.2rem,5.5vw,3.8rem);
+  margin-bottom:16px
+}
+
+.typed{
+  font:600 1.3rem Sora,sans-serif;
+  color:var(--accent);
+  min-height:2em
+}
+
+.typed::after{
+  content:"";
+  display:inline-block;
+  width:2px;
+  height:1.1em;
+  background:var(--accent);
+  margin-left:3px;
+  vertical-align:-3px;
+  animation:blink 1s steps(1) infinite
+}
+
+@keyframes blink{
+  50%{opacity:0}
+}
+
+.lead{
+  color:var(--muted);
+  max-width:52ch;
+  margin:16px 0 28px
+}
+
+.btns{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px
+}
+
+.btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  font-weight:500;
+  transition:transform .2s,background .2s
+}
+
+.btn:hover{
+  transform:translateY(-2px)
+}
+
+.btn.primary{
+  background:var(--accent);
+  color:var(--bg);
+  border-color:var(--accent)
+}
+
+.btn:not(.primary):hover{
+  background:var(--surface)
+}
+
+.photo{
+  justify-self:center;
+  width:min(260px,70vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  border:2px solid var(--accent);
+  padding:8px;
+  position:relative
+}
+
+.photo::after{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border-radius:50%;
+  border:1px dashed var(--line)
+}
+
+.photo .in{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:var(--surface) center/cover;
+  display:grid;
+  place-items:center;
+  font:700 3.6rem Sora,sans-serif;
+  color:var(--accent)
+}
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:48px
+}
+
+.about p+p{
+  margin-top:14px
+}
+
+.facts{
+  margin-top:24px;
+  display:grid;
+  gap:8px;
+  color:var(--muted)
+}
+
+.facts span{
+  color:var(--text)
+}
+
+.tl{
+  border-left:2px solid var(--line);
+  padding-left:24px;
+  display:grid;
+  gap:28px
+}
+
+.tl>div{
+  position:relative
+}
+
+.tl>div::before{
+  content:"";
+  position:absolute;
+  left:-31px;
+  top:7px;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 4px var(--bg)
+}
+
+.tl h3{
+  font-size:1.02rem
+}
+
+.tl small{
+  color:var(--muted)
+}
+
+.tl p{
+  color:var(--muted)
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:28px
+}
+
+.card .meta{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+  color:var(--muted);
+  margin-bottom:12px
+}
+
+.card h3{
+  font-size:1.2rem
+}
+
+.projects{
+  display:grid;
+  gap:24px;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr))
+}
+
+.project{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  transition:border-color .2s,transform .2s
+}
+
+.project:hover{
+  border-color:var(--accent);
+  transform:translateY(-4px)
+}
+
+.project ul{
+  padding-left:18px;
+  color:var(--muted);
+  display:grid;
+  gap:8px;
+  font-size:.94rem
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px
+}
+
+.tags span{
+  font-size:.78rem;
+  padding:3px 10px;
+  border-radius:99px;
+  background:rgba(138,143,255,.14);
+  color:var(--accent)
+}
+
+.project .btn{
+  margin-top:auto;
+  align-self:flex-start;
+  padding:9px 18px;
+  font-size:.92rem
+}
+
+.skills{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr))
+}
+
+.skills .card{
+  padding:22px
+}
+
+.skills h3{
+  font-size:.98rem;
+  color:var(--warm);
+  margin-bottom:12px
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px
+}
+
+.chips span{
+  padding:5px 12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  font-size:.9rem;
+  transition:border-color .2s,color .2s
+}
+
+.chips span:hover{
+  border-color:var(--accent);
+  color:var(--accent)
+}
+
+.contact{
+  display:grid;
+  gap:14px;
+  max-width:480px
+}
+
+.contact a{
+  display:flex;
+  gap:14px;
+  padding:16px 20px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface);
+  transition:border-color .2s
+}
+
+.contact a:hover{
+  border-color:var(--accent)
+}
+
+.contact span{
+  color:var(--muted);
+  min-width:76px
+}
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:28px;
+  border-top:1px solid var(--line);
+  font-size:.9rem
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .6s,transform .6s
+}
+
+.reveal.in{
+  opacity:1;
+  transform:none
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto
+  }
+
+  .reveal{
+    opacity:1;
+    transform:none;
+    transition:none
+  }
+
+  .typed::after{
+    animation:none
+  }
+}
+
+@media (max-width:820px){
+
+  .burger{
+    display:block
+  }
+
+  nav ul{
+    position:absolute;
+    top:var(--nav);
+    left:0;
+    right:0;
+    flex-direction:column;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    padding:10px 24px 18px;
+    display:none
+  }
+
+  nav ul.open{
+    display:flex
+  }
+
+  #home .wrap,
+  .about{
+    grid-template-columns:1fr
+  }
+
+  .photo{
+    order:-1;
+    width:180px
+  }
+
+  section{
+    padding:72px 20px
+  }
+
+  .ach{
+    flex-direction:column;
+    gap:6px
+  }
+}
+</style>
 </head>
-
 
 <body>
 
-    <header>
+<nav>
+  <a href="#home" class="logo">
+    <b>PJ</b>
+    Pasupati Nath Jha
+  </a>
+
+  <button
+    class="burger"
+    id="burger"
+    aria-label="Toggle menu"
+    aria-expanded="false"
+  >
+    Menu
+  </button>
+
+  <ul id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section id="home">
+
+  <div class="wrap">
+
+    <div>
+
+      <p class="hi">Hi, my name is</p>
+
+      <h1>Pasupati Nath Jha</h1>
+
+      <div
+        class="typed"
+        id="typed"
+        aria-live="off"
+      ></div>
+
+      <p class="lead">
+        I build responsive web apps, from AI chatbots to real-time
+        chat platforms, using React, Node.js and MongoDB.
+      </p>
+
+      <div class="btns">
+
+        <a
+          class="btn primary"
+          href="#projects"
+        >
+          View my projects
+        </a>
+
+        <a
+          class="btn"
+          href="Pasupati_Nath_Jha_Resume.pdf"
+          download
+        >
+          Download resume
+        </a>
+
+        <a
+          class="btn"
+          href="https://github.com/pasupati2002"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub
+        </a>
+
+        <a
+          class="btn"
+          href="https://www.linkedin.com/in/pasupati-nath-jha-549194220/"
+          target="_blank"
+          rel="noopener"
+        >
+          LinkedIn
+        </a>
+
+      </div>
+
+    </div>
+
+<div class="photo">
+  <div
+    class="in"
+    id="photo"
+    style="background-image:url('my_img.png.jpg');"
+    aria-label="Pasupati Nath Jha profile photo"
+  ></div>
+</div>
+
+  </div>
+
+</section>
+
+<section id="about">
 
-        <nav>
+  <div class="wrap reveal">
 
-            <div class="left">
+    <h2>About me</h2>
 
-                <img
-                    src="photo.png"
-                    alt=""
-                    class="portfolio-icon"
-                >
+    <p class="sub">
+      A recent Information Technology graduate who enjoys
+      turning ideas into working products.
+    </p>
 
-                My Portfolio
+    <div class="about">
 
-            </div>
+      <div>
 
+        <p>
+          I completed my B.Tech in Information Technology at
+          Bengal Institute of Technology in 2025. Along the way
+          I built full-stack projects, finished a web development
+          internship, and practised problem solving in coding contests.
+        </p>
 
-            <div class="right">
+        <p>
+          I work across the stack: React on the front end,
+          Node.js and Express on the back end, and MongoDB
+          or MySQL for data.
+        </p>
 
-                <ul>
+        <div class="facts">
 
-                    <li>
-                        <a href="">Home</a>
-                    </li>
+          <div>
+            Phone:
+            <span>+91-6289647711</span>
+          </div>
 
-                    <li>
-                        <a href="">About</a>
-                    </li>
-
-                    <li>
-                        <a href="">Services</a>
-                    </li>
-
-                    <li>
-                        <a href="">Projects</a>
-                    </li>
-
-                    <li>
-                        <a href="">Contact</a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </nav>
-
-    </header>
-
-    <main>
-
-
-        <section class="firstSection">
-
-            <div class="leftSection">
-
-                <div>
-                    Hi, My name is
-                    <span class="purple">Pasupati</span>
-                </div>
-
-                <div>
-                    and I am a passionate
-                </div>
-
-                <span id="element"></span>
-
-
-                <div class="buttons">
-
-                    <a href="Resume_PNJ.pdf" download>
-
-                        <button class="btn">
-                            Download Resume
-                        </button>
-
-                    </a>
-
-
-                    <a href="https://github.com/pasupati2002?tab=repositories">
-
-                        <button class="btn">
-                            Visit Github
-                        </button>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="rightSection">
-
-                <img
-                    src="my_img.png.jpg"
-                    alt=""
-                    class="center-image"
-                >
-
-            </div>
-
-        </section>
-
-
-        <hr>
-
-
-        <section class="secondSection">
-
-            <span class="text-grey">
-                What i have done so far
-            </span>
-
-            <h1>
-                My Projects
-            </h1>
-
-
-            <div class="box">
-
-
-                <div class="vertical">
-
-                    <img
-                        class="image-top"
-                        src="login (1).png"
-                        alt=""
-                    >
-
-                    <div class="vertical-title">
-                        Login Page Using HTML and CSS
-                    </div>
-
-                    <div class="vertical-desc">
-
-                        <p>
-                            (Overview: Developed a responsive login page using HTML and CSS.
-                            Designed a user-friendly interface with a modern, clean layout.
-                        </p>
-
-                        <p>
-                            Technologies Used: HTML, CSS, Responsive Web Design.
-                        </p>
-
-                        <p>
-                            Outcome: The project demonstrates fundamental front-end development
-                            skills, including design and implementation of user interfaces.)
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vertical">
-
-                    <img
-                        class="image-top"
-                        src="calculator.png"
-                        alt=""
-                    >
-
-                    <div class="vertical-title">
-                        Interactive <br>
-                        Calculator
-                    </div>
-
-                    <div class="vertical-desc">
-
-                        <p>
-                            (Overview: Developed a fully functional calculator using HTML, CSS,
-                            and basic JavaScript.
-                        </p>
-
-                        <p>
-                            Technologies Used: HTML, CSS, JavaScript.
-                        </p>
-
-                        <p>
-                            Outcome: Demonstrates proficiency in front-end development,
-                            including JavaScript functionality and responsive design.)
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vertical">
-
-                    <img
-                        class="image-top"
-                        src="list.png"
-                        alt=""
-                    >
-
-                    <div class="vertical-title">
-                        To-Do List <br>
-                        Application
-                    </div>
-
-                    <div class="vertical-desc">
-
-                        <p>
-                            (Overview: Developed a To-Do list application using HTML, CSS,
-                            and JavaScript to manage tasks efficiently.
-                        </p>
-
-                        <p>
-                            Technologies Used: HTML, CSS, JavaScript.
-                        </p>
-
-                        <p>
-                            Outcome: Demonstrates proficiency in front-end development
-                            and state management using JavaScript.)
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vertical">
-
-                    <img
-                        class="image-top"
-                        src="myntra.jpg"
-                        alt=""
-                    >
-
-                    <div class="vertical-title">
-                        Myntra Clone with Responsive Design
-                    </div>
-
-                    <div class="vertical-desc">
-
-                        <p>
-                            (Overview: Developed a responsive clone of the Myntra shopping
-                            platform using HTML, CSS, and JavaScript, with functionality
-                            to manage items in a shopping bag.
-                        </p>
-
-                        <p>
-                            Technologies Used: HTML, CSS, JavaScript.
-                        </p>
-
-                        <p>
-                            Outcome: Demonstrates proficiency in front-end development
-                            and interactive web application features.)
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <div class="footer">
-
-            <div class="footer-first">
-
-                <h3>
-                    Pasupati's Developer Portfolio
-                </h3>
-
-            </div>
-
-
-            <div class="footer-second">
-
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Contact</li>
-                </ul>
-
-            </div>
-
-
-            <div class="footer-third">
-
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Contact</li>
-                </ul>
-
-            </div>
-
-
-            <div class="footer-fourth">
-
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Contact</li>
-                </ul>
-
-            </div>
+          <div>
+            Email:
+            <span>gkj5432@gmail.com</span>
+          </div>
 
         </div>
 
+      </div>
 
-        <div class="footer-rights">
+      <div class="tl">
 
-            Copyright &#169; pasupatiportfolio.com | All rights reserved
-
+        <div>
+          <h3>B.Tech, Information Technology</h3>
+          <small>
+            Bengal Institute of Technology, 2021 – 2025
+          </small>
+          <p>CGPA 7.86 / 10</p>
         </div>
 
-    </footer>
+        <div>
+          <h3>Higher Secondary (WBCHSE)</h3>
+          <small>
+            Shree Jain Vidyalaya, 2019 – 2021
+          </small>
+          <p>73.4%</p>
+        </div>
+
+        <div>
+          <h3>Secondary (WBBSE)</h3>
+          <small>
+            HindMotor High School, 2018 – 2019
+          </small>
+          <p>71.28%</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="experience">
+
+  <div class="wrap reveal">
+
+    <h2>Experience</h2>
+
+    <p class="sub">
+      Hands-on training in web development.
+    </p>
+
+    <div class="card">
+
+      <div class="meta">
+        <span>
+          Oasis Infobyte (Virtual, AICTE OIB-SIP)
+        </span>
+
+        <span>
+          Aug 2024 – Sep 2024 · 1 month
+        </span>
+      </div>
+
+      <h3>
+        Web Development &amp; Designing Intern
+      </h3>
+
+      <p style="color:var(--muted);margin-top:8px">
+        Completed a certified one-month AICTE-affiliated
+        virtual internship in web development and designing.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="projects">
+
+  <div class="wrap reveal">
+
+    <h2>Projects</h2>
+
+    <p class="sub">
+      Best three projects of mine which I built and deployed.
+    </p>
+
+    <div class="projects">
+
+      <article class="card project">
+
+        <h3>ConversAI</h3>
+
+        <div class="tags">
+          <span>Node.js</span>
+          <span>Express.js</span>
+          <span>JavaScript</span>
+          <span>Gemini API</span>
+        </div>
+
+        <ul>
+
+          <li>
+            Responsive AI chatbot using the Google Gemini API
+            for real-time natural-language replies.
+          </li>
+
+          <li>
+            RESTful <code>/api/chat</code> endpoint with
+            error handling and automatic retry logic.
+          </li>
+
+          <li>
+            API keys secured with environment variables;
+            mobile-friendly glassmorphism interface.
+          </li>
+
+        </ul>
+
+        <a
+          class="btn"
+          href="https://converseai-8cez.onrender.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Live demo
+        </a>
+
+      </article>
+
+      <article class="card project">
+
+        <h3>Melodify</h3>
+
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+        <ul>
+
+          <li>
+            Music streaming web app with a clean,
+            interactive interface.
+          </li>
+
+          <li>
+            Song browsing, album artwork, audio playback,
+            progress tracking and playback controls.
+          </li>
+
+          <li>
+            Mobile-friendly layout that works smoothly
+            across devices.
+          </li>
+
+        </ul>
+
+        <a
+          class="btn"
+          href="https://jovial-bublanina-5e21fe.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Live demo
+        </a>
+
+      </article>
+
+      <article class="card project">
+
+        <h3>PulseChat</h3>
+
+        <div class="tags">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>Express</span>
+          <span>MongoDB</span>
+          <span>Socket.IO</span>
+        </div>
+
+        <ul>
+
+          <li>
+            Full-stack real-time chat with secure authentication,
+            instant messaging and online/offline presence.
+          </li>
+
+          <li>
+            File and image sharing, RESTful APIs and
+            Socket.IO communication.
+          </li>
+
+          <li>
+            Frontend on Vercel, backend on Render,
+            with production-ready configuration.
+          </li>
+
+        </ul>
+
+        <a
+          class="btn"
+          href="https://real-time-chat-q96m.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Live demo
+        </a>
+
+      </article>
 
 
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    </div>
 
-    <script>
+  </div>
 
-        var typed = new Typed('#element', {
+</section>
 
-            strings: ['Web Developer.'],
+<section id="skills">
 
-            typeSpeed: 20,
+  <div class="wrap reveal">
 
-            loop: true
+    <h2>Skills</h2>
+
+    <p class="sub">
+      The tools I use most.
+    </p>
+
+    <div class="skills">
+
+      <div class="card">
+        <h3>Languages</h3>
+
+        <div class="chips">
+          <span>Java</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h3>Frontend</h3>
+
+        <div class="chips">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>React.js</span>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h3>Backend</h3>
+
+        <div class="chips">
+          <span>Node.js</span>
+          <span>Express.js</span>
+          <span>RESTful APIs</span>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h3>Databases</h3>
+
+        <div class="chips">
+          <span>MongoDB</span>
+          <span>MySQL</span>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h3>Tools &amp; platforms</h3>
+
+        <div class="chips">
+          <span>Git</span>
+          <span>GitHub</span>
+          <span>Vercel</span>
+          <span>Render</span>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h3>Computer science</h3>
+
+        <div class="chips">
+          <span>DSA</span>
+          <span>OOP</span>
+          <span>API integration</span>
+          <span>Basic AI concepts</span>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h3>Soft skills</h3>
+
+        <div class="chips">
+          <span>Problem solving</span>
+          <span>Critical thinking</span>
+          <span>Communication</span>
+          <span>Presentation</span>
+          <span>Data-driven decisions</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact">
+
+  <div class="wrap reveal">
+
+    <h2>Contact</h2>
+
+    <p class="sub">
+      Open to opportunities. Email is the fastest way to reach me.
+    </p>
+
+    <div class="contact">
+
+      <a href="mailto:gkj5432@gmail.com">
+        <span>Email</span>
+        gkj5432@gmail.com
+      </a>
+
+      <a href="tel:+916289647711">
+        <span>Phone</span>
+        +91-6289647711
+      </a>
+
+      <a
+        href="https://github.com/pasupati2002"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>GitHub</span>
+        github.com/pasupati2002
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/pasupati-nath-jha-549194220/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>LinkedIn</span>
+        linkedin.com/in/pasupati-nath-jha-549194220
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  © 2026 Pasupati Nath Jha. All rights reserved.
+</footer>
+
+
+<script>
+
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+
+burger.onclick = () => {
+
+  const open = menu.classList.toggle('open');
+
+  burger.setAttribute(
+    'aria-expanded',
+    open
+  );
+
+};
+
+menu.querySelectorAll('a').forEach(
+  a => a.onclick = () => {
+
+    menu.classList.remove('open');
+
+    burger.setAttribute(
+      'aria-expanded',
+      false
+    );
+
+  }
+);
+
+const links = [
+  ...menu.querySelectorAll('a')
+];
+
+const spy = new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+
+        links.forEach(link => {
+
+          link.classList.toggle(
+            'active',
+            link.getAttribute('href') ===
+            '#' + entry.target.id
+          );
 
         });
 
-    </script>
+      }
+
+    });
+
+  },
+  {
+    rootMargin:'-45% 0px -50% 0px'
+  }
+);
+
+document
+  .querySelectorAll('section')
+  .forEach(section => spy.observe(section));
+
+const revealObserver =
+  new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add('in');
+
+          revealObserver.unobserve(
+            entry.target
+          );
+
+        }
+
+      });
+
+    },
+    {
+      threshold:.1
+    }
+  );
+
+document
+  .querySelectorAll('.reveal')
+  .forEach(element =>
+    revealObserver.observe(element)
+  );
+
+const words = [
+  'Full-Stack Web Developer',
+  'React & Node.js Developer',
+  'Problem Solver'
+];
+
+const typed =
+  document.getElementById('typed');
+
+let wordIndex = 0;
+let characterIndex = 0;
+let deleting = false;
+
+(function type(){
+
+  const word = words[wordIndex];
+
+  typed.textContent =
+    word.slice(0, characterIndex);
+
+  if(
+    !deleting &&
+    characterIndex === word.length
+  ){
+
+    deleting = true;
+
+    return setTimeout(
+      type,
+      1400
+    );
+  }
+
+  if(
+    deleting &&
+    characterIndex === 0
+  ){
+
+    deleting = false;
+
+    wordIndex =
+      (wordIndex + 1) % words.length;
+  }
+
+  characterIndex +=
+    deleting ? -1 : 1;
+
+  setTimeout(
+    type,
+    deleting ? 35 : 70
+  );
+
+})();
+
+</script>
 
 </body>
-
 </html>
