@@ -510,6 +510,224 @@ footer{
     gap:6px
   }
 }
+
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  top: 10%;
+  right: -180px;
+  background: rgba(138, 143, 255, 0.12);
+  filter: blur(100px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  animation: backgroundFloat 9s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundFloat {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100px, 70px, 0);
+  }
+}
+
+#home .wrap > div:first-child {
+  animation: heroEnter 0.9s ease-out both;
+}
+
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.photo {
+  animation: photoEnter 1s ease-out 0.2s both;
+}
+
+.photo .in {
+  animation: photoFloat 5s ease-in-out 1.2s infinite;
+}
+
+.photo::after {
+  animation: orbitSpin 24s linear infinite;
+}
+
+@keyframes photoEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.85) rotate(-6deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes photoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes orbitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.project {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent),
+    transparent
+  );
+  transition: left 0.55s ease;
+}
+
+.project:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.22);
+}
+
+.project:hover::before {
+  left: 130%;
+}
+
+.btn {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 0 24px rgba(138, 143, 255, 0.3);
+}
+
+nav ul a {
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+nav ul a:hover {
+  transform: translateY(-2px);
+  background: rgba(138, 143, 255, 0.08);
+}
+
+.chips span {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+.chips span:hover {
+  transform: translateY(-3px);
+  background: rgba(138, 143, 255, 0.1);
+}
+
+.contact a {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.contact a:hover {
+  transform: translateX(5px);
+  background: rgba(138, 143, 255, 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .photo,
+  .photo .in,
+  .photo::after,
+  #home .wrap > div:first-child {
+    animation: none !important;
+  }
+
+  .project,
+  .btn,
+  nav ul a,
+  .chips span,
+  .contact a {
+    transition: none !important;
+  }
+
+  .project:hover,
+  .btn:hover,
+  nav ul a:hover,
+  .chips span:hover,
+  .contact a:hover {
+    transform: none;
+  }
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal-item.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 </style>
 </head>
 
@@ -1114,6 +1332,39 @@ document
   .forEach(element =>
     revealObserver.observe(element)
   );
+
+const animatedCards = document.querySelectorAll(
+  '#projects .project, #skills .skills .card'
+);
+
+const cardObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const cards = [
+          ...entry.target.parentElement.children
+        ];
+
+        const index = cards.indexOf(entry.target);
+
+        entry.target.style.transitionDelay =
+          `${index * 120}ms`;
+
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.12
+  }
+);
+
+animatedCards.forEach(card => {
+  card.classList.add('reveal-item');
+  cardObserver.observe(card);
+});
+
 
 const words = [
   'Full-Stack Web Developer',
